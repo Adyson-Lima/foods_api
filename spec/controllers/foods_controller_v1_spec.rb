@@ -12,4 +12,12 @@ RSpec.describe Api::V1::FoodsController, type: :controller do
     end
   end
 
+  describe 'GET /api/v1/foods/id' do
+    it 'Consegue listar um food especifico e retornar status 200?' do
+      get :show, params: {id: @food.id}
+      expect(response.body).to include_json(id: @food.id)
+      expect(response).to have_http_status(200)
+    end    
+  end
+ 
 end
