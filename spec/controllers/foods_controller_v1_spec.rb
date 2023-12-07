@@ -36,5 +36,14 @@ RSpec.describe Api::V1::FoodsController, type: :controller do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'DELETE /api/v1/foods/id' do
+    it 'Consegue excluir um food e retornar status 204?' do
+      food = Food.last
+      delete :destroy, params: {id: food.id}
+      expect(Food.all).not_to include(food)
+      expect(response).to have_http_status(204)
+    end
+  end
  
 end
