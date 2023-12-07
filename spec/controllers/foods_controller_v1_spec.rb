@@ -27,5 +27,14 @@ RSpec.describe Api::V1::FoodsController, type: :controller do
       expect(response).to have_http_status(201)
     end
   end
+
+  describe 'PATCH /api/v1/foods/id' do
+    it 'Consegue atualizar um food e retornar status 200?' do
+      food = Food.last
+      patch :update, params: {food: {name: 'capeletti', description: 'massa fechada recheada cozida'}, id: food.id}
+      expect(response.body).to include_json(name: 'capeletti')
+      expect(response).to have_http_status(200)
+    end
+  end
  
 end
