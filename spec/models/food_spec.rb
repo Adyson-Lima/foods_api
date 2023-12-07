@@ -11,6 +11,11 @@ RSpec.describe Food, type: :model do
       expect(@food.name).to eq('macarronada')
     end
 
+    it 'description consegue ser preenchido?' do
+      @food.description = ''
+      expect(@food.description).to eq('massa saborosa com molho')
+    end
+
   end
 
 end
