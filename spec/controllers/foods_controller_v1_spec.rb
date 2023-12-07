@@ -19,5 +19,13 @@ RSpec.describe Api::V1::FoodsController, type: :controller do
       expect(response).to have_http_status(200)
     end    
   end
+
+  describe 'POST /api/v1/foods' do
+    it 'Consegue criar um food e retornar status 201?' do
+      post :create, params: {food: {name: 'lasanha', description: 'prato de massa intercalada em camadas'},format: :json}
+      expect(response.body).to include_json(name: 'lasanha')
+      expect(response).to have_http_status(201)
+    end
+  end
  
 end
