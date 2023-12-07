@@ -1,6 +1,6 @@
 class Api::V1::FoodsController < ApplicationController
 
-  before_action :set_food, only: %i[show update] # show update destroy
+  before_action :set_food, only: %i[show update destroy] # show update destroy
 
   def index
     @foods = Food.all 
@@ -26,6 +26,10 @@ class Api::V1::FoodsController < ApplicationController
     else
       render json: @food.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @food.destroy!
   end
 
 
