@@ -26,6 +26,11 @@ RSpec.describe Food, type: :model do
       expect(@food).to be_valid
     end
 
+    it 'Food invalido com campos obrigatorios não preenchidos?' do
+      food = Food.new
+      expect(food).to be_valid
+    end
+
   end
 
 end
