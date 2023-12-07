@@ -18,4 +18,14 @@ RSpec.describe Food, type: :model do
 
   end
 
+  describe 'Testes de validação do model Food' do
+
+    it 'Food valido com campos obrigatorios preenchidos?' do
+      @food.name = ''
+      @food.description = ''
+      expect(@food).to be_valid
+    end
+
+  end
+
 end
