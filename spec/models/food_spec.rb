@@ -12,7 +12,7 @@ RSpec.describe Food, type: :model do
     end
 
     it 'description consegue ser preenchido?' do
-      @food.description = ''
+      @food.description = 'massa saborosa com molho'
       expect(@food.description).to eq('massa saborosa com molho')
     end
 
