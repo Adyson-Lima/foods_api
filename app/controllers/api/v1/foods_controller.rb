@@ -11,6 +11,16 @@ class Api::V1::FoodsController < ApplicationController
     render json: @food
   end
 
+  def create
+    @food = Food.new(food_params)
+    if @food.save
+      render json: @food, status: :created, location: api_v1_food_url(@food)
+    else
+      render json: @food.errors, status: :unprocessable_entity
+    end
+  end
+
+
 private
 
 def set_food
